@@ -1,10 +1,8 @@
 '''
 # run this code in colab cel
-######################################################
-#import os 
-#os.system('curl https://raw.githubusercontent.com/bxck75/colab_starter/main/setup.py -o /content/setup.py')
-#os.system('python /content/setup.py')
-######################################################
+# import os
+# out = os.popen('python /content/setup.py').read()
+# print(out)
 '''
 
 import os,subprocess
@@ -82,11 +80,14 @@ from subprocess import PIPE, Popen
 reps=[
         'yt-dlp/yt-dlp ',
         'mikf/gallery-dl',
-        'keras-team/keras ',
-#        'bxck75/piss-ant-pix2pix',
-#        'bxck75/A1_CycleGAN-and-pix2pix_with_colab',
-#        'bxck75/CartoonGAN-Test-Pytorch-Torch',
+        'bxck75/piss-ant-pix2pix',
+        'bxck75/A1_CycleGAN-and-pix2pix_with_colab',
+        'bxck75/CartoonGAN-Test-Pytorch-Torch',
+        'tkarras/progressive_growing_of_gans/tree/original-theano-version',
+        'willylulu/celeb-hq-modified',
 #        'eriklindernoren/Keras-GAN',
+#        'keras-team/keras-contrib',
+#        'mikf/gallery-dl',
          'bxck75/datasets',
 #         'tjwei/Flappy-Turtle.',
 #         'tjwei/fonttools',
@@ -97,21 +98,21 @@ reps=[
 #         'chenyuntc/PyTorchText',
 #         'lllyasviel/style2paints',
 #         'llSourcell/GANS-for-style-transfer',
-#         'opencv/open_model_zoo',
+         'opencv/open_model_zoo',
 #         'hindupuravinash/the-gan-zoo',
 #         'corenel/GAN-Zoo',
 #         'eriklindernoren/Keras-GAN',
-#        'junyanz/CycleGAN',
+         'junyanz/CycleGAN',
 #         'junyanz/pytorch-CycleGAN-and-pix2pix',
 #         'junyanz/iGAN', #----> !wget http://efrosgans.eecs.berkeley.edu/iGAN/datasets/church_64.zip <----dataset 	outdoor_128.zip 	handbag_128.zip !!!
-         'martinarjovsky/WassersteinGAN',
+#         'martinarjovsky/WassersteinGAN',
 #         'shaoanlu/faceswap-GAN',
-#           'LantaoYu/SeqGAN',
+#         'LantaoYu/SeqGAN',
 #         'tjwei/GANotebooks',
 #         'adeshpande3/Tensorflow-Programs-and-Tutorials',
 #         'adeshpande3/Generative-Adversarial-Networks',
-         'diegoalejogm/gans',
-#         'osh/KerasGAN',
+#         'diegoalejogm/gans',
+         'osh/KerasGAN',
 #         'r9y9/gantts',
 #         'jayleicn/animeGAN',
 #         'jayleicn/ImageNet-Training',
@@ -127,7 +128,7 @@ reps=[
 #         'tensorflow/text',
 #         'mnicnc404/CartoonGan-tensorflow',
 #         'Yijunmaverick/CartoonGAN-Test-Pytorch-Torch',
-         'keras-team/keras-contrib',
+#         'keras-team/keras-contrib',
 #         'mnicnc404/CartoonGan-tensorflow',
 ]
 
@@ -154,9 +155,9 @@ class GitGo():
   def help(self):
     return "* pulls git rep and shows files \
             * returns root path for the repository \
-            * Function needs repository <user>/<repository name> combination\
+            * Function needs repository / combination\
             * Switch chdir and define the rootpath for the repository\
-            * Use : GitGo(<list of reps to install>, sub_repos=<True/False, chdir=<True/False>, path=<root path>)\
+            * Use : GitGo(, sub_repos=, path=)\
             "
   
   def install_reps(self):    
@@ -192,13 +193,13 @@ class GitGo():
       cmdline("pip install -e . |grep 'succes'",True)
     if 'tensorflow/text' in self.repos:
       os.chdir(root+'/text')
-      cmdline('pip install tensorflow_text==2.0.1')
+      cmdline('pip install tensorflow_text==2.0.1')     
     # switch backt to root
     os.chdir(self.path)
   
   def install_requirements(self):
     # install reqs
-    loot = recursive_glob(root,'req*.txt')
+    loot = recursive_glob(root,'requirements.txt')
     print("[Installing " + str(len(loot)) + " requirements files!]")
     for l in loot:
         print("["+l+"]")
@@ -227,5 +228,3 @@ class GitGo():
 
 #install git reps
 G=GitGo(reps,sub_repos=True,path=root)
-
-
