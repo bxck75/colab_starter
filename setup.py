@@ -80,20 +80,18 @@ import ipywidgets as widgets
 from subprocess import PIPE, Popen
 # list of reps uncomment to install
 reps=[
-#         'EIGENREPS',
         'yt-dlp/yt-dlp ',
         'mikf/gallery-dl',
+        'keras-team/keras ',
 #        'bxck75/piss-ant-pix2pix',
-        'bxck75/A1_CycleGAN-and-pix2pix_with_colab',
+#        'bxck75/A1_CycleGAN-and-pix2pix_with_colab',
 #        'bxck75/CartoonGAN-Test-Pytorch-Torch',
 #        'eriklindernoren/Keras-GAN',
-#         'mikf/gallery-dl',
          'bxck75/datasets',
-#         'EIGENREPS',
 #         'tjwei/Flappy-Turtle.',
 #         'tjwei/fonttools',
 #         'tjwei/blender3d_import_psk_psa',
-#         'lllyasviel/sketchKeras',
+         'lllyasviel/sketchKeras',
 #         'Mckinsey666/Anime-Face-Dataset',
 #         'chenyuntc/pytorch-book',
 #         'chenyuntc/PyTorchText',
