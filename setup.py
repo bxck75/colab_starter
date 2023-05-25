@@ -194,7 +194,10 @@ class GitGo():
     # custom setup stuff for youtube-dl repo
     if 'yt-dlp/yt-dlp' in self.repos:
       os.chdir(root+'/yt-dlp') 
-      cmdline("pip install -e . |grep 'succes'",True)      
+      cmdline("pip install -e . |grep 'succes'",True)
+    if 'tensorflow/text' in self.repos:
+      os.chdir(root+'/text')
+      cmdline('pip install tensorflow_text==2.0.1')
     # switch backt to root
     os.chdir(self.path)
   
