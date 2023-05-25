@@ -1,8 +1,11 @@
 '''
 # run this code in colab cel
-# import os
-# out = os.popen('python /content/setup.py').read()
-# print(out)
+######################################################
+# import os from subprocess import Popen, PIPE 
+# with Popen(["python", "/content/setup.py"], stdout=PIPE) as p: 
+#   text = p.stdout.read1().decode("utf-8") 
+#   print(text, end='', flush=True)
+######################################################
 '''
 
 import os,subprocess
