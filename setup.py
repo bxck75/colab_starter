@@ -101,6 +101,7 @@ reps=[
 #         'llSourcell/GANS-for-style-transfer',
          'opencv/open_model_zoo',
          'opencv/opencv',
+         'ultralytics/flickr_scraper',
 #         'hindupuravinash/the-gan-zoo',
 #         'corenel/GAN-Zoo',
 #         'eriklindernoren/Keras-GAN',
